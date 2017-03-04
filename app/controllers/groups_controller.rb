@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @groups = Group.all
   end
@@ -8,6 +8,10 @@ class GroupsController < ApplicationController
   end
   def edit
    @group = Group.find(params[:id])
+    if current_user != @group.user
+    redirect_to group_path(@group)
+    flash[:alert] = "你没有权限哦！"
+    end
   end
   def update
     @group = Group.find(params[:id])
