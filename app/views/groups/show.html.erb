@@ -1,13 +1,32 @@
 <div class="col-md-12">
 
   <div class="group">
-    <%= link_to("write a post", new_group_post_path(@group), class: "btn btn-default pull-right") %>    
+    <%= link_to("write a post", new_group_post_path(@group), class: "btn btn-default pull-right") %>
     <% if current_user && current_user == @group.user %>
     <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right") %>
-  </div>
-  <% end %>
+
+    <% end %>
+    </div>
+    <br>
   <div class="text-center">
     <h2> <%= @group.title %> </h2>
     <p> <%= @group.description %> </p>
   </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>文章内容</td>
+        <td>发布者</td>
+        <td>发表时间</td>
+      </tr>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td>post.content</td>
+        <td>post.user.email</td>
+        <td>post.created_at</td>
+      </tr>
+      <% end %>
+    </tbody>
+
 </div>
