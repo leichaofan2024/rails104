@@ -9,11 +9,9 @@
       <td>#</td>
       <td>Title </td>
       <td>Description</td>
-      <% @groups.each do |group| %>
-      <% if current_user && current_user == group.user %>
+
       <td>管理菜单</td>
-      <% end %>
-      <% end %>
+
       <td>所有者</td>
     </tr>
   </thead>
@@ -30,6 +28,8 @@
          <%= link_to("Delete", group_path(group),  class: "btn btn-success", method: :delete, data: {confirm: "Are you sure?"}) %>
 
       </td>
+      <% else %>
+      <td></td>
       <% end %>
       <td><%= group.user.email  %></td>
     </tr>
