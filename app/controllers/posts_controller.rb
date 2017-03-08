@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    @group = Group.find(params[:group_id])
+    @posts = @group.posts
+  end
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
@@ -16,8 +20,10 @@ class PostsController < ApplicationController
     end
   end
   def show
+      @post = Post.find(params[:post_id])
     @group = Group.find(params[:group_id])
-    @post = @group.posts.find(params[:id])
+    @post.group = @group
+
 
   end
   private
