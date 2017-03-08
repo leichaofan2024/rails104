@@ -1,0 +1,24 @@
+<div class="col-md-12 col-lg-offset">
+  <h1 class="text-center">我参与的讨论版</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>标题</td>
+        <td>描述</td>
+        <td>创办者</td>
+        <td>创办时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.title %></td>
+        <td><%= group.description %></td>
+        <td><%= group.user.email %></td>
+        <td><%= group.created_at %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+
+</div>
