@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = Post.new
   end
+
   def create
     @group = Group.find(params[:group_id])
     @post = Post.new(post_params)
@@ -16,11 +17,12 @@ class PostsController < ApplicationController
   end
   def show
     @group = Group.find(params[:group_id])
-    @post = @group.post.find(params[:id])
+    @post = @group.posts.find(params[:id])
+
   end
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content,:title)
   end
 end
