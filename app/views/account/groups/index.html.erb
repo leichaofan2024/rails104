@@ -13,7 +13,7 @@
       <% @groups.each do |group| %>
       <tr>
         <td><%= group.title %></td>
-        <td><%= group.description %></td>
+        <td><%= render_group_description(group) %></td>
         <td><%= group.user.email %></td>
         <td><%= group.created_at %></td>
       </tr>
