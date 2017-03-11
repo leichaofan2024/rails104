@@ -1,5 +1,5 @@
-
-<div class="">
+<div style="">
+<div class="" >
   <%= link_to("Add a group", new_group_path, class: "btn pull-right", style: "color:red;background-color:green") %>
 </div>
 
@@ -18,4 +18,6 @@
   <tbody>
   <%= render :partial => "group_item", :collection => @groups, :as => :group %>
   </tbody>
+
 </table>
+</div>

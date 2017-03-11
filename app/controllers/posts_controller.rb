@@ -20,9 +20,8 @@ class PostsController < ApplicationController
     end
   end
   def show
-      @post = Post.find(params[:post_id])
-    @group = Group.find(params[:group_id])
-    @post.group = @group
+      @group = Group.find(params[:group_id])
+      @post = Post.find(params[:id])
 
 
   end
